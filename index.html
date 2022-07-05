@@ -1,0 +1,138 @@
+<html><head></head><body><htmllang="ru">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=,initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .application{
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .application__main{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .application__container{
+            position: relative;
+        }
+
+        .application__container-logo{
+            font-family: 'Nunito';
+            font-weight: 700;
+            font-size: 38px;
+            line-height: 125%;
+            color: #202020;
+        }
+
+        .application__container-item{
+            border: 1px solid #E9E9E9;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 300px;
+        }
+        
+        .application__container-name{
+            font-weight: 700;
+            font-size: 22px;
+            line-height: 125%;
+            font-family: 'Nunito';
+            color: #000000;
+        }
+
+        .application__container-description{
+            margin-top: 10px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            font-family: 'Nunito';
+            color: #898989;
+        }
+
+        .application__container .application__container-item:last-child{
+            margin-top: 30px;
+        }
+
+         img{
+            
+        }
+
+        .application__container-image{
+            position: absolute;
+        }
+
+        .application__container .application__container-image:nth-child(1){
+            top: -90px;
+            z-index: 3;
+        }
+
+        .application__container .application__container-image:nth-child(2){
+            z-index: 1;
+            top: -15px;
+            left: -13px;
+        }
+
+        .application__container .application__container-image:nth-child(3){
+            z-index: 0;
+            top: 230px;
+            left: -7px;
+        }
+
+
+    </style>
+    <body>
+        <div class="application">
+            <div class="application__container-logo">
+                Область применения
+            </div>
+            <div class="application__main">
+                <div class="application__container">
+                    <div class="application__container-item">
+                        <div class="application__container-name">
+                            Лицо
+                        </div>
+                        <div class="application__container-description">
+                            С другой стороны, дальнейшее развитие различных форм деятельности
+                        </div>
+                    </div>
+                    <div class="application__container-item">
+                        <div class="application__container-name">
+                            Тело
+                        </div>
+                        <div class="application__container-description">
+                            Решения касаемо поставленных обществом
+                        </div>
+                    </div>
+                </div>
+                <div class="application__container">
+                    <img class="application__container-image" src="./head.png" alt="Голова косметология">
+                    <img class="application__container-image" src="./body.png" alt="Тело косметология">
+                    <img class="application__container-image" src="./legs.png" alt="Ноги косметология">
+                </div>
+                <div class="application__container">
+                    <div class="application__container-item">
+                        <div class="application__container-name">
+                            Волосы
+                        </div>
+                        <div class="application__container-description">
+                            С другой стороны, дальнейшее развитие различных форм деятельности
+                        </div>
+                    </div>
+                    <div class="application__container-item">
+                        <div class="application__container-name">
+                            Ноги
+                        </div>
+                        <div class="application__container-description">
+                            Решения касаемо поставленных обществом
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+    </script>
+</html>
