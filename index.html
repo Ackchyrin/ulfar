@@ -1,5 +1,5 @@
-<html><head></head><body><htmllang="ru">
-
+<html>
+    <html lang="ru">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=,initial-scale=1.0">
@@ -29,6 +29,7 @@
         }
 
         .application__container-item{
+            cursor: pointer;
             border: 1px solid #E9E9E9;
             border-radius: 15px;
             padding: 30px;
@@ -41,6 +42,47 @@
             line-height: 125%;
             font-family: 'Nunito';
             color: #000000;
+            transition: .4s;
+            position: relative;
+            width: fit-content;
+        }
+
+        .application__container-item:hover .application__container-name{
+            color: #5700D8;
+        }
+
+        .application__container-item .application__container-name svg{
+            position: absolute;
+            opacity: 0;
+            animation: backArrow 0.4s linear forwards;
+            bottom: 9px;
+        }
+
+        @keyframes backArrow {
+            0% {
+                opacity: 1;
+                right: -25px;
+            }
+            100% {
+                opacity: 0;
+                right: -20px;
+            }
+        }
+
+        .application__container-item:hover .application__container-name svg{
+            opacity: 0;
+            animation: playArrow 0.4s linear forwards;
+        }
+
+        @keyframes playArrow {
+            0% {
+                opacity: 0;
+                right: -20px;
+            }
+            100% {
+                opacity: 1;
+                right: -25px;
+            }
         }
 
         .application__container-description{
@@ -54,10 +96,6 @@
 
         .application__container .application__container-item:last-child{
             margin-top: 30px;
-        }
-
-         img{
-            
         }
 
         .application__container-image{
@@ -81,6 +119,57 @@
             left: -7px;
         }
 
+        .application__container .application__container-image:nth-child(4){
+            z-index: 1;
+            top: -15px;
+            left: -13px;
+            opacity: 0;
+            animation: hiddenImage 0.4s linear forwards;
+        }
+
+        .application__container .application__container-image:nth-child(5){
+            z-index: 0;
+            top: 230px;
+            left: -7px;
+            opacity: 0;
+            animation: hiddenImage 0.4s linear forwards;
+        }
+
+        .application__container .application__container-image:nth-child(6){
+            top: -90px;
+            z-index: 3;
+            opacity: 0;
+            animation: hiddenImage 0.4s linear forwards;
+        }
+
+        .application__container .application__container-image:nth-child(7){
+            top: -90px;
+            z-index: 3;
+            opacity: 0;
+            animation: hiddenImage 0.4s linear forwards;
+        }
+
+        @keyframes hiddenImage {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .application__animated {
+        animation: showImage 0.4s linear forwards !important;
+        }
+
+        @keyframes showImage {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
 
     </style>
     <body>
@@ -90,17 +179,23 @@
             </div>
             <div class="application__main">
                 <div class="application__container">
-                    <div class="application__container-item">
+                    <div class="application__container-item" id="face">
                         <div class="application__container-name">
                             Лицо
+                            <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.3536 4.35355C10.5488 4.15829 10.5488 3.84171 10.3536 3.64645L7.17157 0.464466C6.97631 0.269204 6.65973 0.269204 6.46447 0.464466C6.2692 0.659728 6.2692 0.976311 6.46447 1.17157L9.29289 4L6.46447 6.82843C6.2692 7.02369 6.2692 7.34027 6.46447 7.53553C6.65973 7.7308 6.97631 7.7308 7.17157 7.53553L10.3536 4.35355ZM0 4.5H10V3.5H0V4.5Z" fill="#5700D8"/>
+                            </svg> 
                         </div>
                         <div class="application__container-description">
                             С другой стороны, дальнейшее развитие различных форм деятельности
                         </div>
                     </div>
-                    <div class="application__container-item">
+                    <div class="application__container-item" id="body">
                         <div class="application__container-name">
                             Тело
+                            <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.3536 4.35355C10.5488 4.15829 10.5488 3.84171 10.3536 3.64645L7.17157 0.464466C6.97631 0.269204 6.65973 0.269204 6.46447 0.464466C6.2692 0.659728 6.2692 0.976311 6.46447 1.17157L9.29289 4L6.46447 6.82843C6.2692 7.02369 6.2692 7.34027 6.46447 7.53553C6.65973 7.7308 6.97631 7.7308 7.17157 7.53553L10.3536 4.35355ZM0 4.5H10V3.5H0V4.5Z" fill="#5700D8"/>
+                            </svg> 
                         </div>
                         <div class="application__container-description">
                             Решения касаемо поставленных обществом
@@ -111,19 +206,29 @@
                     <img class="application__container-image" src="./head.png" alt="Голова косметология">
                     <img class="application__container-image" src="./body.png" alt="Тело косметология">
                     <img class="application__container-image" src="./legs.png" alt="Ноги косметология">
+                    <img class="application__container-image" id="bodyActive" src="./bodyActive.png" alt="Тело косметология активные">
+                    <img class="application__container-image" id="legsActive" src="./legsActive.png" alt="Ноги косметология активные">
+                    <img class="application__container-image" id="faceActive" src="./faceActive.png" alt="Лицо косметология активные">
+                    <img class="application__container-image" id="hairActive" src="./hairActive.png" alt="Волосы косметология активные">
                 </div>
                 <div class="application__container">
-                    <div class="application__container-item">
+                    <div class="application__container-item" id="hair">
                         <div class="application__container-name">
                             Волосы
+                            <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.3536 4.35355C10.5488 4.15829 10.5488 3.84171 10.3536 3.64645L7.17157 0.464466C6.97631 0.269204 6.65973 0.269204 6.46447 0.464466C6.2692 0.659728 6.2692 0.976311 6.46447 1.17157L9.29289 4L6.46447 6.82843C6.2692 7.02369 6.2692 7.34027 6.46447 7.53553C6.65973 7.7308 6.97631 7.7308 7.17157 7.53553L10.3536 4.35355ZM0 4.5H10V3.5H0V4.5Z" fill="#5700D8"/>
+                            </svg> 
                         </div>
                         <div class="application__container-description">
                             С другой стороны, дальнейшее развитие различных форм деятельности
                         </div>
                     </div>
-                    <div class="application__container-item">
+                    <div class="application__container-item" id="legs">
                         <div class="application__container-name">
                             Ноги
+                            <svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.3536 4.35355C10.5488 4.15829 10.5488 3.84171 10.3536 3.64645L7.17157 0.464466C6.97631 0.269204 6.65973 0.269204 6.46447 0.464466C6.2692 0.659728 6.2692 0.976311 6.46447 1.17157L9.29289 4L6.46447 6.82843C6.2692 7.02369 6.2692 7.34027 6.46447 7.53553C6.65973 7.7308 6.97631 7.7308 7.17157 7.53553L10.3536 4.35355ZM0 4.5H10V3.5H0V4.5Z" fill="#5700D8"/>
+                            </svg> 
                         </div>
                         <div class="application__container-description">
                             Решения касаемо поставленных обществом
@@ -134,5 +239,36 @@
         </div>
     </body>
     <script>
+        document.querySelector('#body').addEventListener('mouseover',()=>{
+            document.querySelector('#bodyActive').classList.add('application__animated')
+        })
+
+        document.querySelector('#body').addEventListener('mouseout',()=>{
+            document.querySelector('#bodyActive').classList.remove('application__animated')
+        })
+
+        document.querySelector('#legs').addEventListener('mouseover',()=>{
+            document.querySelector('#legsActive').classList.add('application__animated')
+        })
+
+        document.querySelector('#legs').addEventListener('mouseout',()=>{
+            document.querySelector('#legsActive').classList.remove('application__animated')
+        })
+
+        document.querySelector('#face').addEventListener('mouseover',()=>{
+            document.querySelector('#faceActive').classList.add('application__animated')
+        })
+
+        document.querySelector('#face').addEventListener('mouseout',()=>{
+            document.querySelector('#faceActive').classList.remove('application__animated')
+        })
+
+        document.querySelector('#hair').addEventListener('mouseover',()=>{
+            document.querySelector('#hairActive').classList.add('application__animated')
+        })
+
+        document.querySelector('#hair').addEventListener('mouseout',()=>{
+            document.querySelector('#hairActive').classList.remove('application__animated')
+        })
     </script>
 </html>
